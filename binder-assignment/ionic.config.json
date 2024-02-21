@@ -1,0 +1,7 @@
+{
+  "name": "binder-assignment",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
