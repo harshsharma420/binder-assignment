@@ -1,5 +1,12 @@
-<app-top-nav></app-top-nav>
 <ion-content>
-  <ion-searchbar animated="true" placeholder="Search"></ion-searchbar>
-  <app-course-list-all></app-course-list-all>
+  <app-dashboard-featured-course></app-dashboard-featured-course>
+
+  <ion-searchbar animated="true" placeholder="Search" [(ngModel)]="searchTerm"></ion-searchbar>
+
+  <app-course-list-all [searchTerm]="searchTerm"></app-course-list-all>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scrollToTop()">
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

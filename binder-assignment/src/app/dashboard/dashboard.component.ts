@@ -5,10 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent  implements OnInit {
-
+export class DashboardComponent implements OnInit {
+  searchTerm = "";
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
 }

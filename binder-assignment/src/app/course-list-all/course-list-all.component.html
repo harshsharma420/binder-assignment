@@ -1,22 +1,41 @@
 <ion-content>
-
-
-  <ion-list *ngIf="courseDetialsAll">
+  <ion-list *ngIf="courseDetialsAll" [inset]="true">
     <ion-item *ngFor="let courses of courseDetialsAll">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Card Title</ion-card-title>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>{{courses.courseName}}</ion-card-title>
+          <ion-card-subtitle>By {{courses.author}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
+          <!-- the tags -->
+          <!-- if time is available would like to add filter based on tags i.e on clicking of a particular tag auto filter to that -->
+          <ion-card-subtitle>
+            Tags: {{courses.tags}}
+          </ion-card-subtitle>
+          <br>
+          <span *ngIf="courses.discountPercentage == 0">
+            {{courses.actualPrice}}
+          </span>
+          <span *ngIf="courses.discountPercentage != 0">
+            <span class="slashThrough">
+              {{courses.actualPrice}}
+            </span>
+            <span class="discountedPrice">
+              <!-- Replace the dollar symbol -->
+              ₹{{calculateDiscountedPrice(courses.actualPrice ,courses.discountPercentage)}}
+            </span>
+          </span>
         </ion-card-content>
+        <!-- Buttons for add to cart and add to wishlist -->
+        <ion-button fill="clear">Add to cart</ion-button>
+        <ion-button fill="clear">Add to Wishlist</ion-button>
       </ion-card>
     </ion-item>
   </ion-list>
-  
+
   <!-- This is for when the course list comes back empty or doesnt exist -->
   <!-- use isOpen to fix it and not use ngIf ,it doesn't work -->
-  <ion-alert *ngIf="courseDetialsAll == null"header="A Short Title Is Best" subHeader="A Sub Header Is Optional"
+  <ion-alert *ngIf="courseDetialsAll == null" header="A Short Title Is Best" subHeader="A Sub Header Is Optional"
     message="A message should be a short, complete sentence."></ion-alert>
+
 </ion-content>
