@@ -27,11 +27,18 @@
           </span>
         </ion-card-content>
         <!-- Buttons for add to cart and add to wishlist -->
-        <ion-button fill="clear">Add to cart</ion-button>
-        <ion-button fill="clear">Add to Wishlist</ion-button>
+        <ion-button fill="clear" id="addToCart">Add to cart</ion-button>
+        <ion-button fill="clear" id="addToWishList">Add to Wishlist</ion-button>
       </ion-card>
     </ion-item>
   </ion-list>
+  <!-- when added to cart an alert will popup and will have button view cart and close to stay in the same view -->
+  <ion-alert trigger="addToCart" header="added to cart" subHeader="A Sub Header Is Optional"
+    message="A message should be a short, complete sentence." [buttons]="alertButtons"></ion-alert>
+  <!-- when added to cart an alert will popup and will have button view wishlist and close to stay in the same view -->
+  <!-- change of alert buttons still pending -->
+  <ion-alert trigger="addToWishlist" header="added to wishlist" subHeader="A Sub Header Is Optional"
+    message="A message should be a short, complete sentence." [buttons]="alertButtons"></ion-alert>
 
   <!-- This is for when the course list comes back empty or doesnt exist -->
   <!-- use isOpen to fix it and not use ngIf ,it doesn't work -->

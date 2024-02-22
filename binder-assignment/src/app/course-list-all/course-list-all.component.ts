@@ -25,7 +25,22 @@ export class CourseListAllComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'View Cart',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
   //function to get all the available courses
   getAllCourses() {
     //susbscription to a service to get the data
